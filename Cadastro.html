@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro</title>
+  <link rel="stylesheet" href="Login.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Cadastro</h2>
+    <form id="cadastroForm">
+      <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required />
+        <div class="error-message" id="nomeErro"></div>
+      </div>
+      <div class="form-group">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required />
+        <div class="error-message" id="emailErro"></div>
+      </div>
+      <div class="form-group">
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required />
+        <div class="error-message" id="senhaErro"></div>
+      </div>
+      <button type="submit" id="submitButton">Cadastrar</button>
+      <div id="mensagem"></div>
+    </form>
+  </div>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("cadastroForm");
+    const nomeInput = document.getElementById("nome");
+    const emailInput = document.getElementById("email");
+    const senhaInput = document.getElementById("senha");
+    const nomeErro = document.getElementById("nomeErro");
+    const emailErro = document.getElementById("emailErro");
+    const senhaErro = document.getElementById("senhaErro");
+    const mensagemDiv = document.getElementById("mensagem");
+    const submitButton = document.getElementById("submitButton"); // Pega o botão
+
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        resetarErros();
+
+        const nome = nomeInput.value.trim();
+        const email = emailInput.value.trim();
+        const senha = senhaInput.value.trim();
+
+        let isValid = true;
+
+        if (!nome) {
+            mostrarErro(nomeErro, "Por favor, digite seu nome.");
+            isValid = false;
+        }
+
+        if (!email) {
+            mostrarErro(emailErro, "Por favor, digite seu e-mail.");
+            isValid = false;
+        } else if (!validarEmail(email)) {
+            mostrarErro(emailErro, "Por favor, digite um e-mail válido.");
+            isValid = false;
+        }
+
+        if (!senha) {
+            mostrarErro(senhaErro, "Por favor, digite sua senha.");
+            isValid = false;
+        } else if (senha.length < 6) {
+            mostrarErro(senhaErro, "A senha deve ter no mínimo 6 caracteres.");
+            isValid = false;
+        }
+
+        if (isValid) {
+            cadastrarUsuario(nome, email, senha);
+        }
+    });
+
+    function resetarErros() {
+        nomeErro.textContent = "";
+        emailErro.textContent = "";
+        senhaErro.textContent = "";
+        mensagemDiv.textContent = "";
+    }
+
+    function mostrarErro(elemento, mensagem) {
+        elemento.textContent = mensagem;
+    }
+
+    function validarEmail(email) {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+    }
+
+    function cadastrarUsuario(nome, email, senha) {
+        const usuariosCadastrados = localStorage.getItem("usuarios");
+        let usuarios = usuariosCadastrados ? JSON.parse(usuariosCadastrados) : [];
+
+        const usuarioExistente = usuarios.find((user) => user.email === email);
+
+        if (usuarioExistente) {
+            mensagemDiv.textContent = "Este e-mail já está cadastrado.";
+            mensagemDiv.style.color = "#a94442";
+            return;
+        }
+
+        usuarios.push({ id: Date.now(), nome, email, senha });
+        localStorage.setItem("usuarios", JSON.stringify(usuarios));
+        // Salva o nome do usuário logado
+        localStorage.setItem("usuarioLogado", JSON.stringify({ nome: nome, email: email }));
+        mensagemDiv.textContent = "Cadastro realizado com sucesso!";
+        mensagemDiv.style.color = "#4b8b3b";
+        form.reset();
+
+        // Altera o texto do botão para "Login"
+        submitButton.textContent = "Voltar para o Login";
+        // Adiciona a lógica de redirecionamento para a página de login
+        submitButton.onclick = () => {
+            window.location.href = "login.html"; // Substitua "login.html" pelo URL real da sua página de login
+        };
+    }
+});
+
+  </script>
+
+</body>
+</html>

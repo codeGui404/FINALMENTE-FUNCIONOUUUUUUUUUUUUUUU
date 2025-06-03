@@ -1,0 +1,677 @@
+
+/*
+ * Estilos Gerais e Corpo
+ * Esses estilos se aplicam globalmente e definem a aparência básica da página.
+ */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    background-color: #f0f2f5;
+    color: #4b2e2e;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    overflow-x: hidden; /* Previne barra de rolagem horizontal */
+}
+
+/*
+ * Contêiner para Conteúdo
+ * Limita a largura do conteúdo para melhor legibilidade em telas grandes e adiciona preenchimento.
+ */
+.container {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 0 25px;
+    box-sizing: border-box; /* Garante que o preenchimento e a borda sejam incluídos na largura total */
+}
+
+/*
+ * Seção do Cabeçalho
+ * Estilos para a barra de navegação superior.
+ */
+header {
+    background-color: #4b2e2e;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-family: 'Leckerli One', cursive; 
+    font-size: 3.2em; /* Ligeiramente maior */
+    color: var(--white);
+    margin: 0; /* Remove margem padrão para melhor controle */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Sombra sutil no texto do título */
+}
+/* Seu CSS existente... */
+
+/* Seu CSS existente... */
+
+header nav {
+    display: flex; /* Habilita o Flexbox */
+    justify-content: flex-start; /* Alinha o conteúdo à esquerda inicialmente */
+    align-items: center; /* Centraliza os itens verticalmente */
+    width: 100%; /* Garante que o nav ocupe toda a largura */
+    padding: 0 20px; /* Adiciona um padding nas laterais */
+    box-sizing: border-box;
+    /* Ajuste o gap para espaçar os elementos. Vamos usar um truque com margin-left: auto para o botão de sair. */
+    /* Remova a propriedade 'gap' daqui, pois vamos usar margin-left: auto; para o botão de sair. */
+}
+
+header h1 {
+    /* Mantenha os estilos existentes para o h1 */
+    font-family: 'Leckerli One', cursive;
+    font-size: 3.2em;
+    color: #fff;
+    margin: 0; /* Remova a margem para evitar problemas com o Flexbox */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+    margin-right: auto; /* Empurra o botão Home e Sair para a direita */
+}
+
+.home-button { /* Use a classe para estilizar apenas o botão Home */
+    color: #ccb5a5;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1em;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-right: 20px; /* Espaço entre o botão Home e o botão Sair */
+    flex-shrink: 0; /* Impede que o botão encolha */
+}
+
+.home-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #fff;
+}
+
+.logout-button { /* Estilos para o novo botão de Sair */
+     color: #ccb5a5;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1em;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-right: 20px; /* Espaço entre o botão Home e o botão Sair */
+    flex-shrink: 0; /* Impede que o botão encolha */
+}
+
+.logout-button:hover {
+     background-color: rgba(255, 255, 255, 0.3);
+    color: #fff;
+}
+
+
+/* Ajustes Responsivos para o header nav */
+@media (max-width: 768px) {
+    header nav {
+        flex-direction: column; /* Empilha os itens verticalmente em telas menores */
+        padding: 15px 20px;
+        gap: 15px; /* Reduza o gap para telas menores */
+    }
+
+    header h1 {
+        font-size: 2.5em;
+        margin-bottom: 15px;
+        margin-right: 0; /* Remove o margin-right: auto em telas pequenas */
+    }
+
+    .home-button,
+    .logout-button { /* Aplica estilos a ambos os botões em telas pequenas */
+        font-size: 0.95em;
+        padding: 8px 15px;
+        margin-left: 0;
+        margin-right: 0; /* Garante que não haja margin auto quando empilhado */
+        width: 100%; /* Faz os botões ocuparem a largura total */
+        text-align: center; /* Centraliza o texto dentro do botão */
+    }
+
+    .home-button {
+        margin-bottom: 10px; /* Espaço entre os botões quando empilhados */
+    }
+}
+
+/*
+ * Seção de Informações do Perfil
+ * Estilos para os detalhes do perfil do usuário e avatar.
+ */
+.profile-info {
+    display: flex;
+    flex-direction: column; /* Empilha os itens verticalmente no celular */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 4px solid #ccb5a5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-details {
+    text-align: center;
+    width: 100%;
+}
+
+.profile-details p {
+    margin: 6px 0;
+    font-size: 0.95em;
+    color: #666;
+}
+
+.profile-details .label {
+    font-weight: 600;
+    color: #4b2e2e;
+}
+
+.profile-details button {
+    background-color: #8b5e3c;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95em;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(139, 94, 60, 0.2);
+    width: auto;
+    max-width: 200px;
+}
+
+.profile-details button:hover {
+    background-color: #6a4a2e;
+    transform: translateY(-2px);
+}
+
+.profile-details button:active {
+    transform: translateY(0);
+}
+
+/*
+ * Seções do Perfil (Favoritos, Resenhas)
+ * Layout e estilo para as diferentes seções de conteúdo do perfil.
+ */
+.profile-sections {
+    display: grid;
+    grid-template-columns: 1fr; /* Layout de coluna única para celular */
+    gap: 20px;
+}
+
+.profile-section {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeitos de hover apenas para telas maiores */
+@media (min-width: 768px) {
+    .profile-section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+}
+
+
+.profile-section h2 {
+    margin-top: 0;
+    color: #4b2e2e;
+    border-bottom: 2px solid #ccb5a5;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+/*
+ * Seção do Rodapé
+ * Estilos para o rodapé da página.
+ */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    color: #777;
+    font-size: 0.85em;
+    border-top: 1px solid #e0e0e0;
+    background-color: #ffffff;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/*
+ * Contêiner da Lista de Livros Favoritos
+ * Layout de grade para exibir os cards de livros favoritos.
+ */
+.favorite-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+/*
+ * Estilo do Card de Livro Individual
+ * Estilos para cada livro dentro da lista de favoritos.
+ */
+.book-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Efeitos de hover apenas para telas maiores */
+@media (min-width: 768px) {
+    .book-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+}
+
+
+.book-card img {
+    width: 100px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+}
+
+.book-card h3 {
+    font-size: 0.95em;
+    color: #4b2e2e;
+    margin: 0 0 5px 0;
+    line-height: 1.3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    word-break: break-word;
+}
+
+.book-card p {
+    font-size: 0.8em;
+    color: #666;
+    margin-bottom: 10px;
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    word-break: break-word;
+}
+
+.book-card .remove-button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8em;
+    transition: background-color 0.3s ease;
+    margin-top: auto; /* Empurra o botão para a parte inferior do card */
+}
+
+.book-card .remove-button:hover {
+    background-color: #c82333;
+}
+
+/*
+ * Estilo da Mensagem "Sem Favoritos"
+ * Estilo para quando não há livros favoritos.
+ */
+.no-favorites {
+    text-align: center;
+    color: #777;
+    font-style: italic;
+    grid-column: 1 / -1; /* Ocupa todas as colunas da grade */
+    padding: 15px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-size: 0.9em;
+}
+
+/*
+ * Estilo da Lista de Resenhas e Notas
+ */
+.reviewsList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaçamento entre os cards de resenha */
+}
+
+.review-card {
+    background-color: #fcfcfc;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+}
+
+.review-card h3 {
+    margin: 0 0 8px 0;
+    color: #4b2e2e;
+    font-size: 1.1em;
+}
+
+.review-card p {
+    margin: 5px 0;
+    color: #555;
+    font-size: 0.9em;
+}
+
+.review-card strong {
+    color: #4b2e2e;
+}
+
+.review-card .remove-review-button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8em;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.review-card .remove-review-button:hover {
+    background-color: #c82333;
+}
+
+.no-reviews {
+    text-align: center;
+    color: #777;
+    font-style: italic;
+    padding: 15px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-size: 0.9em;
+}
+
+/*
+ Ajustes Responsivos com Media Queries
+ Esses estilos se aplicam quando a largura da tela é 768px ou maior (para tablets e desktops).
+ */
+@media (min-width: 768px) {
+    .container {
+        padding: 0 25px;
+    }
+
+    header {
+        padding: 40px 0;
+        margin-bottom: 30px;
+    }
+
+    header h1 {
+        font-size: 2.2em;
+        letter-spacing: 1px;
+    }
+
+    header nav a {
+        font-size: 1.1em;
+        padding: 8px 15px;
+        margin: 0 5px;
+    }
+
+    .profile-info {
+        flex-direction: row; /* Organiza os itens em linha para desktops */
+        text-align: left;
+        align-items: flex-start; /* Alinha os itens ao topo */
+        padding: 30px;
+        margin-bottom: 40px;
+    }
+
+    .profile-avatar {
+        width: 180px;
+        height: 180px;
+        margin-right: 40px;
+        margin-bottom: 0;
+        border: 6px solid #ccb5a5;
+    }
+
+    .profile-details {
+        text-align: left;
+    }
+
+    .profile-details p {
+        margin: 8px 0;
+        font-size: 1em;
+    }
+
+    .profile-details button {
+        padding: 12px 25px;
+        font-size: 1em;
+        margin-top: 20px;
+    }
+
+    .profile-sections {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Duas colunas para tablets/desktops */
+        gap: 25px;
+    }
+
+    .profile-section {
+        padding: 25px;
+    }
+
+    .profile-section h2 {
+        border-bottom: 3px solid #ccb5a5;
+        padding-bottom: 12px;
+        margin-bottom: 20px;
+        font-size: 1.5em;
+    }
+
+    footer {
+        margin-top: 50px;
+        padding: 25px;
+        font-size: 0.95em;
+    }
+
+    .favorite-list {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 25px;
+    }
+
+    .book-card {
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        padding: 20px;
+    }
+
+    .book-card img {
+        width: 150px;
+        height: 225px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .book-card h3 {
+        font-size: 1.1em;
+        margin: 0 0 8px 0;
+    }
+
+    .book-card p {
+        font-size: 0.9em;
+        margin-bottom: 15px;
+    }
+
+    .book-card .remove-button {
+        padding: 10px 18px;
+        border-radius: 6px;
+        font-size: 0.9em;
+    }
+
+    .no-favorites {
+        padding: 20px;
+        margin-top: 20px;
+        font-size: 1em;
+    }
+
+    .reviewsList {
+        gap: 20px;
+    }
+
+    .review-card {
+        padding: 20px;
+    }
+
+    .review-card h3 {
+        font-size: 1.2em;
+    }
+
+    .review-card p {
+        font-size: 1em;
+    }
+
+    .review-card .remove-review-button {
+        padding: 10px 18px;
+        font-size: 0.9em;
+    }
+}
+
+
+/* Seu CSS existente... */
+
+.star-rating {
+    color: gold; /* Cor das estrelas */
+    font-size: 1.2em; /* Tamanho das estrelas */
+    letter-spacing: 2px; /* Espaçamento entre as estrelas */
+}
+
+/* Seu CSS existente... */
+
+.star-rating {
+    color: gold;
+    font-size: 1.2em;
+    letter-spacing: 2px;
+}
+
+/* Novos estilos para o card da resenha com capa */
+.review-card {
+    background-color: #fcfcfc;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    display: flex; /* Adicionado para alinhar a capa e o texto */
+    align-items: flex-start; /* Alinha a capa e o texto no topo */
+    gap: 15px; /* Espaçamento entre a capa e o texto */
+}
+
+.review-book-cover {
+    width: 80px;  /* Largura da capa */
+    height: 120px; /* Altura da capa */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0; /* Impede que a imagem encolha */
+}
+
+.review-details {
+    flex-grow: 1; /* Permite que os detalhes da resenha ocupem o espaço restante */
+}
+
+.review-card h3 {
+    margin: 0 0 8px 0;
+    color: #4b2e2e;
+    font-size: 1.1em;
+}
+
+.review-card p {
+    margin: 5px 0;
+    color: #555;
+    font-size: 0.9em;
+}
+
+.review-card strong {
+    color: #4b2e2e;
+}
+
+.review-card .remove-review-button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8em;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.review-card .remove-review-button:hover {
+    background-color: #c82333;
+}
+
+.no-reviews {
+    text-align: center;
+    color: #777;
+    font-style: italic;
+    padding: 15px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-size: 0.9em;
+}
+
+/* Ajustes Responsivos para o review-card */
+@media (min-width: 768px) {
+    .review-card {
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .review-book-cover {
+        width: 100px;
+        height: 150px;
+    }
+
+    .review-card h3 {
+        font-size: 1.2em;
+    }
+
+    .review-card p {
+        font-size: 1em;
+    }
+
+    .review-card .remove-review-button {
+        padding: 10px 18px;
+        font-size: 0.9em;
+    }
+}

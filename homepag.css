@@ -1,0 +1,472 @@
+/* Importação de fontes do Google Fonts - Recomenda-se adicionar isso no <head> do seu HTML */
+/* <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Leckerli+One&display=swap" rel="stylesheet"> */
+
+:root {
+    /* Definição de variáveis CSS para cores e sombras, facilitando a manutenção e a consistência */
+    --primary-color: #4b2e2e; /* Dark brown - base para cabeçalho e textos */
+    --secondary-color: #8b5e3c; /* Medium brown - botões, destaques */
+    --accent-color: #ccb5a5; /* Light tan - links, bordas */
+    --background-light: #f0f2f5; /* Fundo suave */
+    --text-dark: #333; /* Texto principal mais escuro */
+    --text-light: #666; /* Texto secundário */
+    --white: #ffffff;
+    --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 6px 12px rgba(0, 0, 0, 0.08);
+    --shadow-strong: 0 10px 20px rgba(0, 0, 0, 0.15);
+    --border-radius-small: 5px;
+    --border-radius-medium: 8px;
+    --star-gold: #FFD700; /* Cor dourada para as estrelas */
+    --star-gray: #ccc; /* Cor cinza para estrelas não selecionadas */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--background-light);
+    margin: 0;
+    padding: 0;
+    line-height: 1.7; /* Ligeiramente maior para melhor legibilidade */
+    color: var(--text-dark); /* Usando a variável */
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased; /* Suavização de fontes para MacOS/iOS */
+    -moz-osx-font-smoothing: grayscale; /* Suavização de fontes para Firefox no MacOS */
+}
+
+header {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 25px 20px; /* Ajuste sutil no padding */
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-light);
+    flex-wrap: wrap;
+    position: sticky; /* Cabeçalho fixo ao rolar */
+    top: 0;
+    z-index: 1000; /* Garante que o cabeçalho fique acima de outros elementos */
+}
+
+h1 {
+    font-family: 'Leckerli One', cursive; /* 'cursive' é mais apropriado para 'Leckerli One' */
+    font-size: 3.2em; /* Ligeiramente maior */
+    color: var(--white);
+    margin: 0; /* Remove margem padrão para melhor controle */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Sombra sutil no texto do título */
+}
+
+header nav {
+    margin-left: auto;
+}
+
+header nav a {
+    color: var(--accent-color);
+    text-decoration: none;
+    margin-left: 30px; /* Mais espaço entre os links */
+    font-weight: 500;
+    font-size: 1.15em; /* Ligeiramente maior */
+    padding: 10px 18px; /* Mais padding */
+    border-radius: var(--border-radius-small);
+    transition: background-color 0.3s ease, color 0.3s ease; /* Adiciona transição de cor */
+}
+
+header nav a:hover {
+    background-color: rgba(255, 255, 255, 0.25); /* Sutilmente mais visível no hover */
+    color: var(--white); /* Texto branco no hover */
+}
+
+header p {
+    font-size: 1.1em;
+    opacity: 0.95; /* Levemente mais opaco */
+    margin: 0 20px 0 0;
+    max-width: 300px; /* Limita a largura do slogan */
+}
+
+.search-bar {
+    text-align: center;
+    margin: 40px auto; /* Mais margem superior e inferior */
+    max-width: 800px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Espaço entre input e botão */
+}
+
+input[type="text"] {
+    flex-grow: 1;
+    padding: 14px 18px; /* Mais padding */
+    font-size: 18px; /* Fonte maior */
+    border: 1px solid var(--accent-color);
+    border-radius: var(--border-radius-medium);
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.08); /* Sombra interna sutil */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: var(--secondary-color);
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.08), 0 0 0 4px rgba(139, 94, 60, 0.2); /* Sombra de foco mais proeminente */
+    outline: none;
+}
+
+button {
+    padding: 14px 30px; /* Mais padding */
+    font-size: 18px; /* Fonte maior */
+    cursor: pointer;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius-medium);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 10px rgba(139, 94, 60, 0.25); /* Sombra um pouco mais forte */
+    flex-shrink: 0;
+    font-weight: 600; /* Texto do botão mais encorpado */
+}
+
+button:hover {
+    background-color: #7a4f2e; /* Tom mais escuro no hover */
+    transform: translateY(-3px); /* Movimento mais pronunciado */
+    box-shadow: 0 8px 15px rgba(139, 94, 60, 0.35); /* Sombra mais intensa no hover */
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 8px rgba(139, 94, 60, 0.2);
+}
+
+.book-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Ajuste o minmax para flexibilidade */
+    gap: 30px; /* Mais espaçamento entre os cards */
+    padding: 30px 20px;
+    max-width: 1280px; /* Aumenta a largura máxima da lista */
+    margin: 0 auto;
+}
+
+.book-card {
+    background: var(--white);
+    border: 1px solid #e0e0e0; /* Borda mais suave */
+    border-radius: var(--border-radius-medium);
+    padding: 20px; /* Aumenta o padding para mais "ar" */
+    box-shadow: var(--shadow-medium);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Garante que nada transborde */
+}
+
+.book-card:hover {
+    transform: translateY(-8px); /* Movimento mais perceptível */
+    box-shadow: var(--shadow-strong); /* Sombra mais intensa */
+}
+
+.book-card img {
+    width: 100%;
+    max-width: 160px; /* Capas ligeiramente maiores para destaque */
+    height: auto;
+    border-radius: var(--border-radius-medium);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15); /* Sombra mais destacada na imagem */
+    margin-bottom: 15px; /* Mais espaço abaixo da imagem */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.book-card h3 {
+    font-size: 1.45em; /* Aumenta o título */
+    color: var(--primary-color);
+    margin-top: 10px;
+    margin-bottom: 8px;
+    min-height: 2.2em; /* Altura mínima para evitar layout shift */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.3; /* Ajusta a altura da linha para títulos */
+}
+
+.book-card p {
+    font-size: 1em; /* Ligeiramente maior */
+    color: var(--text-light);
+    margin-bottom: 12px;
+    min-height: 1.4em;
+}
+
+.favorite-btn {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: var(--border-radius-medium);
+    font-size: 1em; /* Ligeiramente maior */
+    font-weight: 600;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 3px 8px rgba(139, 94, 60, 0.2);
+}
+
+.favorite-btn:hover {
+    background-color: #7a4f2e;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(139, 94, 60, 0.3);
+}
+
+.favorite-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(139, 94, 60, 0.2);
+}
+
+.review-box {
+    margin-top: 25px; /* Mais espaço */
+    width: 100%;
+}
+
+textarea {
+    width: calc(100% - 24px); /* Ajusta a largura considerando o padding */
+    height: 90px; /* Altura um pouco maior */
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid var(--accent-color);
+    border-radius: var(--border-radius-medium);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    resize: vertical;
+    margin-bottom: 12px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+textarea:focus {
+    border-color: var(--secondary-color);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05), 0 0 0 3px rgba(139, 94, 60, 0.2);
+    outline: none;
+}
+
+.submit-review {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: var(--border-radius-medium);
+    font-size: 1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 3px 8px rgba(75, 46, 46, 0.2);
+}
+
+.submit-review:hover {
+    background-color: #3d2424; /* Tom mais escuro no hover */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(75, 46, 46, 0.3);
+}
+
+.submit-review:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(75, 46, 46, 0.2);
+}
+
+/* Estilo para o título "Livros Sugeridos" */
+.book-list h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 2.5em; /* Tamanho maior para destaque */
+    color: var(--primary-color);
+    text-align: center;
+    margin: 50px auto 40px auto; /* Mais espaçamento */
+    width: 100%;
+    grid-column: 1 / -1;
+    position: relative;
+    padding-bottom: 12px;
+    letter-spacing: 0.03em; /* Leve espaçamento entre letras */
+}
+
+/* Adiciona um underline decorativo ao título */
+.book-list h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 100px; /* Largura um pouco maior do underline */
+    height: 5px; /* Espessura um pouco maior */
+    background-color: var(--secondary-color);
+    border-radius: 3px; /* Cantos arredondados */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil no underline */
+}
+
+/* Estilos para o sistema de estrelas */
+.star-rating {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    direction: rtl; /* Para que as estrelas comecem da direita para a esquerda */
+}
+
+.star-rating input[type="radio"] {
+    display: none; /* Esconde os radio buttons */
+}
+
+.star-rating label {
+    font-size: 2.5em; /* Tamanho das estrelas */
+    color: var(--star-gray); /* Cor padrão das estrelas */
+    cursor: pointer;
+    padding: 0 2px; /* Espaçamento entre as estrelas */
+    transition: color 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: var(--star-gold); /* Estrelas douradas no hover */
+    transform: scale(1.1); /* Efeito de "zoom" no hover */
+}
+
+.star-rating input[type="radio"]:checked ~ label {
+    color: var(--star-gold); /* Estrelas douradas quando selecionadas */
+}
+
+/* Ajustes Responsivos */
+@media (max-width: 992px) {
+    .book-list {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 25px;
+    }
+    .book-card img {
+        max-width: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    header nav {
+        margin-left: 0;
+        margin-top: 20px; /* Mais espaço */
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap; /* Permite que os links quebrem */
+        gap: 10px; /* Espaço entre os links */
+    }
+
+    header nav a {
+        margin: 0; /* Remove margem lateral */
+        padding: 8px 12px; /* Ajusta padding */
+        font-size: 1.05em;
+    }
+
+    header p {
+        margin: 15px 0 0 0;
+        font-size: 1em;
+        text-align: center;
+    }
+
+    .search-bar {
+        flex-direction: column; /* Empilha em telas menores */
+        margin: 30px auto;
+        padding: 0 20px;
+        align-items: stretch; /* Estica os itens */
+    }
+
+    input[type="text"] {
+        width: 100%;
+        margin-bottom: 15px; /* Adiciona espaço abaixo do input */
+        margin-right: 0;
+    }
+
+    button {
+        width: 100%;
+        margin-left: 0;
+        padding: 12px 20px;
+    }
+
+    .book-list {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .book-card {
+        padding: 15px;
+    }
+
+    .book-card img {
+        max-width: 130px;
+        margin-bottom: 10px;
+    }
+
+    .book-card h3 {
+        font-size: 1.25em;
+        min-height: 2em;
+    }
+
+    .book-list h2 {
+        font-size: 2em;
+        margin: 40px auto 30px auto;
+    }
+    .book-list h2::after {
+        width: 80px;
+        height: 4px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    header nav a {
+        font-size: 0.95em;
+        padding: 6px 10px;
+    }
+
+    .search-bar {
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+
+    input[type="text"] {
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+
+    .book-list {
+        grid-template-columns: 1fr; /* Uma coluna em telas muito pequenas */
+        padding: 15px;
+    }
+
+    .book-card img {
+        max-width: 100px;
+    }
+
+    .book-card h3 {
+        font-size: 1.1em;
+        min-height: 1.8em;
+    }
+
+    .favorite-btn, .submit-review {
+        font-size: 0.9em;
+        padding: 8px 12px;
+    }
+
+    .book-list h2 {
+        font-size: 1.7em;
+        margin: 30px auto 25px auto;
+    }
+    .book-list h2::after {
+        width: 60px;
+        height: 3px;
+    }
+}

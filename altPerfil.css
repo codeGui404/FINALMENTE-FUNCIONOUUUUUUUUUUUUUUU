@@ -1,0 +1,99 @@
+/* Estilo da barra superior */
+header {
+  background-color: #333;
+  color: rgb(248, 248, 248);
+  padding: 20px;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+body {
+  font-family: "Georgia", serif;
+  background-color: #fdfcf9;
+  color: #4b2e2e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+#perfilForm {
+  background: rgb(255, 255, 255);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(43, 42, 42, 0.699);
+  margin-top: 30px; /* Adiciona espaço acima do formulário */
+  display: flex; /* Adicionado para centralizar o conteúdo internamente se necessário */
+  flex-direction: column; /* Adicionado para organizar os elementos verticalmente */
+  align-items: center; /* Centraliza os itens horizontalmente dentro do form */
+}
+
+/* Linhas da Barra */
+input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #616362;
+  border-radius: 4px;
+}
+
+/* deixa a Barra estreita */
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+
+.sugestoes {
+    border: 1px solid #ccc;
+    max-height: 150px;
+    overflow-y: auto;
+    position: absolute;
+    background: white;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 200px;
+    z-index: 1000;
+}
+
+.sugestoes li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.sugestoes li:hover {
+    background-color: #f0f0f0;
+}
+
+
+/* botão alter dados */
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #8b5e3c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-align: center; /* Centraliza o conteúdo dentro do formulário */
+}
+
+button:hover {
+  background-color: #71452e;
+  cursor: pointer;
+}
+
+
+/* Barra inferior */
+footer {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

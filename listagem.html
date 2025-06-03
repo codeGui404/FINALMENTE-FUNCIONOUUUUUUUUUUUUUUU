@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="listagem.css">
+  <title>Listagem de Livros e Usuários</title>
+</head>
+<body>
+  
+  <!-- Sessão de LIVROS-->
+   <h1>Gerenciamento de Livros</h1>
+
+   <!-- Inputs para adicionar livro-->
+    <input type="text" id="tituloLivro" placeholder="Título do Livro">
+    <input type="text" id="autorLivro" placeholder="Autor do Livro">
+    <button onclick="adicionarLivro()">Adicionar Livro</button>
+
+    <!-- Campo de busca de Livros-->
+     <label for="buscaLivro">Buscar Livro:</label>
+     <input type="text" id="buscaLivro" placeholder="Buscar por título ou autor">
+
+     <!-- Tabela de Livros-->
+      <h2>Lista de Livros</h2>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="tabelaLivros"></tbody>
+      </table>
+
+      <hr>
+
+      <!-- Seção de USUÁRIOs -->
+       <h1>Gerenciamento de Usuários</h1>
+
+       <!-- Botão para adicionar usuário via prompt-->
+        <label for=""></label>
+        <button onclick="adicionarUsuario()">Adicionar Usuário</button>
+
+        <!-- Campo de busca de usuários -->
+         <label for="buscaUsuario">Buscar Usuário:</label>
+         <input type="text" id="buscaUsuario" placeholder="Buscar por nome ou email">
+
+         <!-- Tabela de usuários -->
+          <h2>Lista de Usuários</h2>
+          <table border="1">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="tabelaUsuarios"></tbody>
+          </table>
+
+          <script src="listagem.js"></script>
+</body>
+</html>

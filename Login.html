@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="Login.css" />
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required />
+                <div class="error-message" id="emailErro"></div>
+            </div>
+            <div class="form-group">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" required />
+                <div class="error-message" id="senhaErro"></div>
+            </div>
+            <button type="submit">Entrar</button>
+            <div id="mensagem"></div>
+        </form>
+        <p style="text-align: center; margin-top: 15px;">
+            Não tem uma conta? <a href="cadastro.html" style="color: #8b5e3c;">Cadastre-se</a>
+        </p>
+    </div>
+
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("loginForm");
+    const emailInput = document.getElementById("email");
+    const senhaInput = document.getElementById("senha");
+    const emailErro = document.getElementById("emailErro");
+    const senhaErro = document.getElementById("senhaErro");
+    const mensagemDiv = document.getElementById("mensagem");
+
+    function validarEmail(email) {
+        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regexEmail.test(email);
+    }
+
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        emailErro.textContent = "";
+        senhaErro.textContent = "";
+        mensagemDiv.textContent = "";
+
+        const email = emailInput.value.trim();
+        const senha = senhaInput.value.trim();
+
+        // Validação do formato do e-mail
+        if (!validarEmail(email)) {
+            emailErro.textContent = "Por favor, insira um e-mail válido.";
+            emailErro.style.color = "#a94442";
+            return; // Impede a continuação do processo de login
+        }
+
+        const usuariosCadastrados = localStorage.getItem("usuarios");
+        let usuarios = usuariosCadastrados ? JSON.parse(usuariosCadastrados) : [];
+
+        const usuarioValido = usuarios.find(
+            (user) => user.email === email && user.senha === senha
+        );
+
+        if (usuarioValido) {
+            // Salva o nome do usuário logado
+            localStorage.setItem("usuarioLogado", JSON.stringify({ nome: usuarioValido.nome, email: usuarioValido.email }));
+            // Verifica se o nome do usuário contém ".adm"
+            if (usuarioValido.nome.includes(".adm")) {
+                mensagemDiv.textContent = "Login de administrador bem-sucedido! Redirecionando para a listagem...";
+                mensagemDiv.style.color = "#4b8b3b";
+                setTimeout(() => {
+                    window.location.href = "listagem.html";
+                }, 1500);
+            } else {
+                mensagemDiv.textContent = "Login bem-sucedido! Redirecionando para a página inicial...";
+                mensagemDiv.style.color = "#4b8b3b";
+                setTimeout(() => {
+                    window.location.href = "homepag.html"; // Redireciona para homepag.html
+                }, 1500);
+            }
+        } else {
+            mensagemDiv.textContent = "E-mail ou senha inválidos.";
+            mensagemDiv.style.color = "#a94442";
+        }
+    });
+});
+    </script>
+</body>
+</html>

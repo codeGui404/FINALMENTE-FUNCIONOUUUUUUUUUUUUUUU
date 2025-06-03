@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Perfil do Usuário - Nome do Site de Livros</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Página de perfil do usuário no Nome do Site de Livros. Veja livros favoritos, lista de leitura e resenhas.">
+    <link rel="stylesheet" href="perfil.css">
+    <link href="https://fonts.googleapis.com/css2?family=Leckerli+One:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <h1>📖 Lore & Explore</h1>
+            <a href="homepag.html" class="home-button">Home</a>
+            <a href="login.html" class="logout-button">Sair</a> </nav>
+    </header>
+
+    <div class="container">
+        <section class="profile-info">
+            <div class="profile-details">
+                <p><span class="label">Nome:</span> <span id="nome"></span></p>
+                <p><span class="label">Data de Registro:</span> <span id="dataRegistro"></span></p>
+                <p><span class="label">País:</span> <span id="pais"></span></p>
+                <p><span class="label">Estado:</span> <span id="estado"></span></p>
+                <button onclick="location.href='altPerfil.html'">Editar Perfil</button>
+            </div>
+        </section>
+
+        <div class="profile-sections">
+            <section class="profile-section">
+                <h2>Livros Favoritos</h2>
+                <div class="favorite-list" id="favoriteList">
+                </div>
+            </section>
+        </div>
+        <p></p>
+        <div class="profile-sections">
+            <section class="profile-section">
+                <h2>Resenhas e Notas</h2>
+                <div class="reviewsList" id="reviewsList"> </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Lore & Explore. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+    <script src="perfil.js"> </script>
+
+</body>
+</html>

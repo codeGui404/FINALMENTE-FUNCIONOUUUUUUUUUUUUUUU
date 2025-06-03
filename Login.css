@@ -1,0 +1,74 @@
+body {
+  font-family: "Georgia", serif;
+  background-color: #fdfcf9;
+  color: #4b2e2e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(75, 46, 46, 0.2);
+  width: 420px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #3e1f1f;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  color: #5c3d3d;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccb5a5;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.error-message {
+  color: #a94442;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+button {
+  background-color: #8b5e3c;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1em;
+  font-family: inherit;
+}
+
+button:hover {
+  background-color: #71452e;
+}
+
+#mensagem {
+  text-align: center;
+  margin-top: 15px;
+  font-weight: bold;
+}

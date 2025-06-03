@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Biblioteca Online</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Leckerli+One:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="homepag.css">
+
+</head>
+
+<body>
+
+<header>
+    <h1>📖 Lore & Explore</h1>
+    <nav>
+        <a href="perfil.html" id="linkPerfil"><span>Meu Perfil</span></a>
+    </nav>
+</header>
+
+<div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Digite o nome do livro..." />
+    <button onclick="searchBooks()">Buscar</button>
+</div>
+
+<div class="book-list" id="bookList">
+</div>
+
+<script src="homepag.js"> </script>
+
+</body>
+</html>
