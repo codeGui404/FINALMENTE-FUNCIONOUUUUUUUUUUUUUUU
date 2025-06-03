@@ -44,9 +44,6 @@ h1 {
     margin: 0; /* Remove margem padrão para melhor controle */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Sombra sutil no texto do título */
 }
-/* Seu CSS existente... */
-
-/* Seu CSS existente... */
 
 header nav {
     display: flex; /* Habilita o Flexbox */
@@ -566,15 +563,11 @@ footer {
 }
 
 
-/* Seu CSS existente... */
-
 .star-rating {
     color: gold; /* Cor das estrelas */
     font-size: 1.2em; /* Tamanho das estrelas */
     letter-spacing: 2px; /* Espaçamento entre as estrelas */
 }
-
-/* Seu CSS existente... */
 
 .star-rating {
     color: gold;
